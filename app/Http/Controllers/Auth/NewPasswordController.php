@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use App\Models\Auth\User;
+use App\Models\Settings\OrganizationProfile;
+use App\Services\Auth\UserPasswordService;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rules;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
+
+class NewPasswordController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('ajax')->only('store');
+    }
+
+    /**
+     * Display the password reset view.
+     */
+    public function create(Request $request): View
+    {
+        $configuration = OrganizationProfile::current()?->Configuration;
+
+        return view('auth.reset-password', [
+            'request' => $request,
+            'authOrganizationName' => $configuration->name ?? config('app.name'),
+            'authOrganizationLogo' => $configuration->logo ?? 'assets/img/carft.png',
+        ]);
+    }
+
+    /**
+     * Handle an incoming new password request.
+     *
+     * @throws ValidationException
+     */
+    public function store(Request $request): JsonResponse
+    {
+        $request->validate([
+            'token' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => [
+                'required',
+                'confirmed',
+                Rules\Password::min(8)->mixedCase()->numbers()->symbols()->uncompromised(),
+            ],
+        ]);
+
+        $user = User::where('Email', $request->email)->first();
+
+        if (! $user || ! Password::tokenExists($user, $request->token)) {
+            throw ValidationException::withMessages([
+                'email' => ['Confirm the email and token are valid.'],
+            ]);
+        }
+
+        $user->forceFill([
+            'Password' => UserPasswordService::hash($user, $request->password),
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        Password::deleteToken($user);
+        event(new PasswordReset($user));
+
+        activity()
+            ->causedBy($user)
+            ->performedOn($user)
+            ->event('password-reset')
+            ->log('Reset password using email link.');
+
+        return $this->succeeded('Password reset successful. Please log in and select a branch.', route('login'));
+    }
+}

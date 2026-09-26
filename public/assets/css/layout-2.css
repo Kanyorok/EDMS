@@ -1,0 +1,111 @@
+/*
+ * Layout 2: large labeled primary sidebar (icon + label, no inline submenus) + a secondary
+ * flyout panel that slides in OVER the main content (not reserving permanent grid space,
+ * unlike Layout 1's persistent secondary pane) to preview/commit a section's children.
+ * Scoped entirely under body[data-pc-layout="layout-2"], desktop only.
+ */
+@media (min-width: 1025px) {
+  body[data-pc-layout="layout-2"] {
+    --layout2-sidebar-width: 220px;
+    --layout2-flyout-width: 240px;
+  }
+
+  body[data-pc-layout="layout-2"] .pc-sidebar,
+  body[data-pc-layout="layout-2"] .pc-sidebar .navbar-wrapper {
+    width: var(--layout2-sidebar-width);
+    overflow: visible;
+  }
+
+  body[data-pc-layout="layout-2"] .pc-sidebar ~ .pc-header {
+    left: var(--layout2-sidebar-width);
+  }
+
+  body[data-pc-layout="layout-2"] .pc-sidebar ~ .pc-footer,
+  body[data-pc-layout="layout-2"] .pc-sidebar ~ .pc-container {
+    margin-left: var(--layout2-sidebar-width);
+  }
+
+  /* Primary sidebar keeps icon + label; children move to the flyout instead of expanding inline. */
+  body[data-pc-layout="layout-2"] .pc-sidebar .pc-navbar > li.pc-item > .pc-link > .pc-arrow {
+    display: none;
+  }
+
+  body[data-pc-layout="layout-2"] .pc-sidebar .pc-navbar > li.pc-item > .pc-submenu {
+    display: none !important;
+  }
+
+  body[data-pc-layout="layout-2"] .pc-sidebar .pc-navbar > li.pc-item.layout2-active > .pc-link,
+  body[data-pc-layout="layout-2"] .pc-sidebar .pc-navbar > li.pc-item.layout2-hovered > .pc-link {
+    color: var(--pc-sidebar-active-color);
+    background: var(--pc-active-background);
+  }
+
+  /* Secondary flyout: fixed overlay, width animates 0 -> open, floating over the main content
+     rather than pushing it (the header/container margin above accounts for the primary
+     sidebar only). */
+  body[data-pc-layout="layout-2"] .layout2-secondary-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: var(--layout2-sidebar-width);
+    width: 0;
+    /* --pc-sidebar-background actually resolves to transparent in this preset (the real
+       sidebar only looks solid because it sits over the plain body background) — this panel
+       overlays real page content, so it needs a genuinely opaque color instead. */
+    background: var(--bs-body-bg);
+    box-shadow: var(--pc-sidebar-shadow, 1px 0 6px rgba(0, 0, 0, .08));
+    overflow: hidden;
+    z-index: 1025;
+    transition: width .2s ease;
+  }
+
+  body[data-pc-layout="layout-2"] .layout2-secondary-panel.open {
+    width: var(--layout2-flyout-width);
+    overflow-y: auto;
+  }
+
+  body[data-pc-layout="layout-2"] .layout2-secondary-header {
+    padding: 16px 20px 12px;
+    margin: 0 0 8px;
+    border-bottom: 1px solid var(--bs-border-color);
+    white-space: nowrap;
+  }
+
+  body[data-pc-layout="layout-2"] .layout2-secondary-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--pc-heading-color);
+  }
+
+  /* --pc-sidebar-color is designed for light text on the DARK rail — this flyout's background
+     is deliberately the light var(--bs-body-bg) instead (see above), so the generic
+     ".pc-sidebar .pc-link { color: var(--pc-sidebar-color) }" rule it would otherwise inherit
+     is wrong here for any theme whose rail text is light (all 4 new presets): light text on a
+     light flyout is illegible. Use the same dark, light-surface-appropriate color the flyout's
+     own title already uses. */
+  body[data-pc-layout="layout-2"] .layout2-secondary-body .pc-link {
+    color: var(--pc-heading-color);
+  }
+
+  /* Same indent-restatement Layout 1 needs, for the same reason: this cloned tree lives
+     outside .pc-navbar so the vendor's own ".pc-navbar > .pc-item .pc-submenu ..." depth
+     rules don't reach it, even though it's still inside .pc-sidebar. */
+  body[data-pc-layout="layout-2"] .layout2-secondary-body .pc-submenu .pc-link {
+    padding-left: 40px;
+  }
+
+  body[data-pc-layout="layout-2"] .layout2-secondary-body .pc-submenu .pc-submenu .pc-link {
+    padding-left: 56px;
+  }
+
+  body[data-pc-layout="layout-2"] .layout2-secondary-body .pc-submenu .pc-submenu .pc-submenu .pc-link {
+    padding-left: 72px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body[data-pc-layout="layout-2"] .layout2-secondary-panel {
+    display: none;
+  }
+}

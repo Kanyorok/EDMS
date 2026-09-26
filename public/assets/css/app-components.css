@@ -1,0 +1,160 @@
+/* Shared HR-module UI components with no other home in the asset pipeline.
+   Loaded globally (see layouts/_partials/_head.blade.php) because dozens of
+   ported HR blade views reference these classes without ever shipping CSS
+   for them. Page-specific stylesheets (e.g. hr-departments.css,
+   staff-loans.css) build on top of this. */
+
+@keyframes app-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+.app-button i {
+  font-size: 15px;
+}
+
+.app-button--icon {
+  padding: 9px;
+}
+
+.app-button--sm {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.app-button--sm.app-button--icon {
+  padding: 5px;
+}
+
+.app-button--primary {
+  background: var(--bs-success, #2ca87f);
+  border-color: var(--bs-success, #2ca87f);
+  color: #fff;
+}
+
+.app-button--primary:hover,
+.app-button--primary:focus {
+  filter: brightness(0.93);
+  color: #fff;
+}
+
+.app-button--danger {
+  background: var(--bs-danger, #dc2626);
+  border-color: var(--bs-danger, #dc2626);
+  color: #fff;
+}
+
+.app-button--danger:hover,
+.app-button--danger:focus {
+  filter: brightness(0.93);
+  color: #fff;
+}
+
+.app-button--outline-danger {
+  background: rgba(var(--bs-danger-rgb, 220, 38, 38), 0.08);
+  border-color: rgba(var(--bs-danger-rgb, 220, 38, 38), 0.25);
+  color: var(--bs-danger, #dc2626);
+}
+
+.app-button--outline-danger:hover,
+.app-button--outline-danger:focus {
+  background: rgba(var(--bs-danger-rgb, 220, 38, 38), 0.14);
+  color: var(--bs-danger, #dc2626);
+}
+
+.app-button--outline-secondary {
+  background: #fff;
+  border-color: var(--bs-border-color, #e7eaee);
+  color: var(--bs-body-color, #131920);
+}
+
+.app-button--outline-secondary:hover,
+.app-button--outline-secondary:focus {
+  background: var(--bs-light, #f4f6f9);
+  color: var(--bs-body-color, #131920);
+}
+
+.app-button--outline-primary {
+  background: rgba(var(--bs-primary-rgb, 70, 128, 255), 0.08);
+  border-color: rgba(var(--bs-primary-rgb, 70, 128, 255), 0.35);
+  color: var(--bs-primary, #4680ff);
+}
+
+.app-button--outline-primary:hover,
+.app-button--outline-primary:focus {
+  background: rgba(var(--bs-primary-rgb, 70, 128, 255), 0.14);
+  color: var(--bs-primary, #4680ff);
+}
+
+.app-button:disabled,
+.app-button.is-loading {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.app-button__loader {
+  display: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: app-spin 0.6s linear infinite;
+}
+
+.app-button.is-loading .app-button__icon {
+  display: none;
+}
+
+.app-button.is-loading .app-button__loader {
+  display: inline-block;
+}
+
+.app-button--secondary {
+  background: var(--bs-light, #f4f6f9);
+  border-color: var(--bs-light, #f4f6f9);
+  color: var(--bs-body-color, #131920);
+}
+
+.app-button--secondary:hover,
+.app-button--secondary:focus {
+  background: var(--bs-border-color, #e7eaee);
+  color: var(--bs-body-color, #131920);
+}
+
+/* ---------- Shared modal content wrapper ----------
+   Used by ~70 create/edit/delete/approve modals across CRM, Debt Collection,
+   Marketing and HR (e.g. resources/views/hr/config/leavetypes/index.blade.php)
+   with no stylesheet anywhere in the app - defined here since it's a shared,
+   app-wide convention, not a page-specific one. */
+.onboarding-content {
+  padding: 4px 2px;
+}
+
+.onboarding-content.with-gradient {
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--bs-light, #f8f9fb) 0%, #fff 140px);
+}
+
+.onboarding-content .form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bs-body-color, #131920);
+}

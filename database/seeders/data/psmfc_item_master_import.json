@@ -1,0 +1,492 @@
+[
+ {
+  "name": "HAND SANITISER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 85
+ },
+ {
+  "name": "SUNLIGHT",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PK5",
+  "price": 60
+ },
+ {
+  "name": "HANDY ANDY",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PK5",
+  "price": 60
+ },
+ {
+  "name": "AIR FRESHENER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PK6",
+  "price": 52
+ },
+ {
+  "name": "TOILET BLOCK",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 530
+ },
+ {
+  "name": "JIK",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 59
+ },
+ {
+  "name": "CHLORINE POWDER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 148
+ },
+ {
+  "name": "TISSUE",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PK18",
+  "price": 20.5
+ },
+ {
+  "name": "FACIAL TISSUE",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 40
+ },
+ {
+  "name": "BOOM POWDER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 49
+ },
+ {
+  "name": "SPIRIT OF SALT",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 95
+ },
+ {
+  "name": "OVEN CLEANER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 100
+ },
+ {
+  "name": "WHITE VINIGAR",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 54
+ },
+ {
+  "name": "ANTI SEPTIC LIQUID",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 140
+ },
+ {
+  "name": "HAND WASH",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 65
+ },
+ {
+  "name": "DASH BOARD SPRAYER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 80
+ },
+ {
+  "name": "HARPIC (BOOM FORCE)",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 57
+ },
+ {
+  "name": "COBRA",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 160
+ },
+ {
+  "name": "MR. MIN",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 62.5
+ },
+ {
+  "name": "MR. MIN (WOODEN)",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 59.5
+ },
+ {
+  "name": "TRU BRU",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 275
+ },
+ {
+  "name": "MUTTON CLOTH",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 140
+ },
+ {
+  "name": "PAPER HAND TOWER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 100
+ },
+ {
+  "name": "HAND SANITIZER 5LTRS",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 275
+ },
+ {
+  "name": "BOOM PASTE",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "BOX",
+  "price": 35
+ },
+ {
+  "name": "CAR SHAMPOO 5LTR",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 175
+ },
+ {
+  "name": "CAR SHAMPOO 2.5LTR",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 85
+ },
+ {
+  "name": "DOMESTOS",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 49
+ },
+ {
+  "name": "CAR SHAMPOO 2 LTRS",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 0
+ },
+ {
+  "name": "BOOM FORCE (SCOURING POWDER)",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 42
+ },
+ {
+  "name": "BIN LINER",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PK10",
+  "price": 90
+ },
+ {
+  "name": "PINE GEL",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 39
+ },
+ {
+  "name": "DISPOSABLE CUPS",
+  "parent": "Cleaning & Housekeeping",
+  "sub": "Cleaning Materials",
+  "uom": "PCS",
+  "price": 12
+ },
+ {
+  "name": "BOND PAPER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Paper Products",
+  "uom": "BOX",
+  "price": 500
+ },
+ {
+  "name": "BIG BOX FILES",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "PK50",
+  "price": 750
+ },
+ {
+  "name": "TONER 201A BLACK",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1037.5
+ },
+ {
+  "name": "TONER 201A MAGENTA",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1037.5
+ },
+ {
+  "name": "TONER 201A YELLOW",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1037.5
+ },
+ {
+  "name": "TONER 201A CYAN",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1037.5
+ },
+ {
+  "name": "TONER 203A BLACK",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1437.5
+ },
+ {
+  "name": "TONER 203A CYAN",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1437.5
+ },
+ {
+  "name": "TONER 203A MAGENTA",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1437.5
+ },
+ {
+  "name": "TONER 203A YELLOW",
+  "parent": "Printing & Consumables",
+  "sub": "Printer Toners",
+  "uom": "PCS",
+  "price": 1437.5
+ },
+ {
+  "name": "SIGN HERE POINTER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Desk Supplies",
+  "uom": "PCS",
+  "price": 15
+ },
+ {
+  "name": "RED SUSPENSION FILE",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": null,
+  "price": null
+ },
+ {
+  "name": "PAPER CLIP 33MM",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Desk Supplies",
+  "uom": "PCS",
+  "price": 55
+ },
+ {
+  "name": "PAPER CLIP 50MM",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Desk Supplies",
+  "uom": "PCS",
+  "price": 75
+ },
+ {
+  "name": "ENVELOPE 10*7",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Envelopes & Mailing",
+  "uom": "PK50",
+  "price": 50
+ },
+ {
+  "name": "ENVELOPE 12*9",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Envelopes & Mailing",
+  "uom": "PK250",
+  "price": 0
+ },
+ {
+  "name": "ENVELOPE 10*15",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Envelopes & Mailing",
+  "uom": "PK250",
+  "price": 295
+ },
+ {
+  "name": "FILE FASTENER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "BOX",
+  "price": 145
+ },
+ {
+  "name": "A4 MANILLA PAPER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Paper Products",
+  "uom": "REAM",
+  "price": 89
+ },
+ {
+  "name": "A4 CLEAR COVER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Paper Products",
+  "uom": "REAM",
+  "price": 139
+ },
+ {
+  "name": "STICKY NOTE",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Writing Materials",
+  "uom": "PCS",
+  "price": 12
+ },
+ {
+  "name": "YELLOW SUSPENSION FILE",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "PK50",
+  "price": 550
+ },
+ {
+  "name": "ARMY GREEN SUSPENSION FILES",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "PK50",
+  "price": 0
+ },
+ {
+  "name": "PURCHASE ORDER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Receipt & Register Books",
+  "uom": "PCS",
+  "price": 256
+ },
+ {
+  "name": "BINDING RING 8MM",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "BOX",
+  "price": 75
+ },
+ {
+  "name": "BLACK PEN",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Writing Materials",
+  "uom": "PK50",
+  "price": 185
+ },
+ {
+  "name": "BLUE PEN",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Writing Materials",
+  "uom": "PK50",
+  "price": 185
+ },
+ {
+  "name": "HEADED PAPER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Paper Products",
+  "uom": "PCS",
+  "price": 3177.05
+ },
+ {
+  "name": "HARD COVER BOOKS",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Paper Products",
+  "uom": "PCS",
+  "price": 32
+ },
+ {
+  "name": "BIG KANGAROO STAPLER",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Desk Supplies",
+  "uom": "PCS",
+  "price": 220
+ },
+ {
+  "name": "MEDIUM PEFORATOR",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Desk Supplies",
+  "uom": "PCS",
+  "price": 190
+ },
+ {
+  "name": "HIGHLIGHTERS",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Writing Materials",
+  "uom": "PK12",
+  "price": 75
+ },
+ {
+  "name": "PLAIN PAPER SEPARATORS",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "REAM",
+  "price": 17
+ },
+ {
+  "name": "PLAIN FOLDERS",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "REAM",
+  "price": 230
+ },
+ {
+  "name": "BLUE SUSPENSION FILE",
+  "parent": "Stationery & Office Supplies",
+  "sub": "Filing & Archiving",
+  "uom": "PK50",
+  "price": 550
+ },
+ {
+  "name": "DVD-RS",
+  "parent": "IT & Computer Accessories",
+  "sub": "Storage Media",
+  "uom": "PCS",
+  "price": 19.5
+ },
+ {
+  "name": "CD",
+  "parent": "IT & Computer Accessories",
+  "sub": "Storage Media",
+  "uom": "PCS",
+  "price": 15.5
+ }
+]

@@ -1,0 +1,189 @@
+/*
+ * Layout 4: horizontal top navigation, no sidebar.
+ *
+ * Uses a CUSTOM data-pc-layout="layout-4" value — NOT the vendor's own literal "horizontal"
+ * string, unlike an earlier version of this file. Reusing "horizontal" seemed appealing since
+ * style.css already has a dormant [data-pc-layout=horizontal] block, but live testing found a
+ * real conflict: this app's own localStorage['layout'] sync (in _head.blade.php, added in
+ * Phase A so the vendor's setLayout() doesn't clobber the server-rendered layout attribute)
+ * treats "horizontal" as a RESERVED keyword — script.js's setLayout() dynamically injects the
+ * vendor's own layout-horizontal.js the instant it sees that exact string in localStorage,
+ * regardless of any Blade-level decision not to include it. That script then fights with this
+ * one over the same .pc-navbar (and, separately, was already found to silently drop
+ * overflowing top-level items — see layout-4.js). Renaming to a custom value sidesteps both
+ * problems at once, matching the same pattern layouts 1-3 already use.
+ *
+ * The rules below are adapted from that dormant vendor block (renamed to this custom
+ * selector), keeping only what this file's simpler JS model actually needs — the vendor's own
+ * .edge/.edge-alt dropdown-positioning classes are skipped since layout-4.js positions
+ * dropdowns itself via inline top/left (same SimpleBar-clipping reason as layout-3.css).
+ */
+@media (min-width: 1025px) {
+  body[data-pc-layout="layout-4"] .pc-header {
+    z-index: 1027;
+    box-shadow: none;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-header .pc-h-item.pc-sidebar-collapse {
+    display: none;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar {
+    width: 100%;
+    background: var(--pc-header-background);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    height: 60px;
+    bottom: auto !important;
+    overflow: visible;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .navbar-content,
+  body[data-pc-layout="layout-4"] .pc-sidebar .m-header {
+    background: var(--pc-header-background);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .navbar-wrapper {
+    width: 100%;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .navbar-content {
+    height: 57px;
+    padding: 6px 20px;
+    box-shadow: var(--pc-sidebar-shadow);
+    border-bottom: var(--pc-sidebar-border);
+  }
+
+  /* Deliberately NOT forcing .simplebar-mask/.simplebar-content-wrapper to overflow:visible
+     here, unlike the vendor's own dormant horizontal CSS — this app's dropdowns are
+     position:fixed (see layout-4.js), which already escapes SimpleBar's clipping entirely
+     regardless of its own overflow setting. Forcing it visible was tried and caused a real
+     bug: SimpleBar's .simplebar-content box (position:static, sized to its full scrollable
+     content rather than the visible 57px strip) then sat in normal document flow tall enough
+     to intercept clicks on other fixed-position chrome behind it, including the customizer
+     trigger — found only by the trigger becoming unclickable live. */
+  /* Unlike layouts 1-3, this whole bar has no dark rail concept at all — every .pc-link here
+     (top-level bar items AND dropdown content, since dropdowns inherit this same rule) sits
+     on the light, translucent var(--pc-header-background), not var(--pc-sidebar-background).
+     --pc-sidebar-color is designed for light text on a DARK rail, so for any theme whose rail
+     text is light (all 4 new presets) it reads as light-on-light here. Use the color designed
+     for text on the app's light surfaces instead. */
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-link {
+    display: block;
+    align-items: center;
+    padding: 10px 14px;
+    color: var(--pc-heading-color);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-link:active,
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-link:focus,
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-link:hover {
+    text-decoration: none;
+    color: var(--pc-sidebar-active-color);
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-link .pc-micon i {
+    vertical-align: middle;
+  }
+
+  /* No room for the account/user card in a 60px-tall bar — account access stays in the
+     topbar's own user dropdown, same reasoning as layout-1's rail. */
+  body[data-pc-layout="layout-4"] .pc-sidebar .card {
+    display: none;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar {
+    display: inline-block !important;
+    white-space: nowrap;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar .pc-link {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Scoped to top-level rail items only (>) — NOT all .pc-item descendants. The vendor
+     markup reuses the same "pc-item" class for <li>s inside a dropdown's .pc-submenu
+     (see ModuleService::_buildSubNavbar), so an unscoped rule here turned dropdown
+     contents into wrapping inline-block "columns" that spilled outside the dropdown box
+     and over the page content beneath it — the submenu is meant to be a vertical list. */
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar > .pc-item {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-submenu .pc-item {
+    display: block;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar > .pc-item:hover:not(.active) > .pc-link {
+    color: var(--bs-primary);
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar > .pc-item > .pc-link {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar > .pc-item > .pc-link > .pc-arrow {
+    transform: rotate(90deg);
+    margin-left: 10px;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-arrow {
+    margin-left: auto;
+    float: right;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-arrow > svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar ~ .pc-footer,
+  body[data-pc-layout="layout-4"] .pc-sidebar ~ .pc-container {
+    margin-left: 0;
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar ~ .pc-container {
+    top: calc(74px + 60px);
+    min-height: calc(100vh - 74px - 120px);
+  }
+
+  body[data-pc-layout="layout-4"] .pc-sidebar ~ .pc-footer {
+    top: 60px;
+  }
+
+  /* Top-level submenus stay hidden by default regardless of a stale .pc-trigger class (same
+     gotcha as layout-3.css: highlightAndScrollActive() may have already marked a branch
+     active/triggered from a previously-visited page) — only the open state below reveals one. */
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar > li.pc-item > .pc-submenu {
+    display: none !important;
+  }
+
+  /* Positioned via inline top/left set by layout-4.js (computed from the hovered item's
+     actual position), not the vendor's own position:absolute + hover-only rule, for the same
+     SimpleBar-clipping reason documented in layout-3.css. */
+  body[data-pc-layout="layout-4"] .pc-sidebar .pc-navbar > li.pc-item.pc-hasmenu > .pc-submenu.layout4-dropdown-open {
+    display: block !important;
+    min-width: 220px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    background: var(--bs-body-bg);
+    box-shadow: var(--pc-sidebar-shadow, 0 4px 16px rgba(0, 0, 0, .12));
+    border: 1px solid var(--bs-border-color);
+    border-radius: 6px;
+    padding: 8px 0;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    z-index: 1030;
+    white-space: normal;
+  }
+}

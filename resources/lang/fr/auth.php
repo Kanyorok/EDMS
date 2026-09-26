@@ -1,0 +1,36 @@
+<?php
+
+return [
+    'failed'                          => 'Ces identifiants ne correspondent pas à nos enregistrements.',
+    'password'                        => 'Le mot de passe fourni est incorrect.',
+    'throttle'                        => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
+
+    'email_required'                  => "L'adresse e-mail est requise.",
+    'invalid_email_format'            => 'Veuillez entrer une adresse e-mail valide.',
+    'password_required'               => 'Le mot de passe est requis.',
+    'password_mismatch'               => 'Les mots de passe ne correspondent pas.',
+    'password_reuse_not_allowed'      => 'Vous ne pouvez pas réutiliser votre mot de passe actuel.',
+    'user_exists'                     => 'Un compte avec cet e-mail existe déjà.',
+    'validation_failed'               => 'Veuillez vérifier votre saisie et réessayer.',
+    'invalid_phone_format'            => 'Veuillez entrer un numéro de téléphone valide au format international.',
+
+    'verify_email_subject'            => 'Vérifiez votre e-mail — :app',
+    'verify_email_greeting'           => 'Bonjour :name,',
+    'verify_email_line'               => 'Cliquez sur le bouton ci-dessous pour vérifier votre adresse e-mail.',
+    'verify_email_action'             => "Vérifier l'adresse e-mail",
+    'verify_email_expire'             => 'Ce lien de vérification expirera dans :minutes minutes.',
+    'verify_email_ignore'             => "Si vous n'avez pas créé de compte, aucune action supplémentaire n'est requise.",
+    'registration_personal_successful'=> 'Enregistrement des informations personnelles réussi ! Veuillez vérifier votre e-mail pour valider votre compte.',
+    'registration_failed'             => "L'inscription a échoué. Veuillez réessayer ou contacter le support.",
+    'invalid_credentials'             => "L'identifiant ou le mot de passe fourni ne correspond pas à nos enregistrements.",
+    'account_inactive'                => 'Votre compte est actuellement inactif.',
+    'acc_not_approved'                => "Votre compte est en attente d'approbation par un administrateur.",
+    'login_failed'                    => 'Échec de la connexion. Veuillez vérifier vos identifiants.',
+    'logout_successful'               => 'Vous avez été déconnecté avec succès.',
+    'email_verified'                  => 'Votre e-mail a été vérifié avec succès ! Vous pouvez maintenant compléter votre profil.',
+    'invalid_verification_link'       => 'Ce lien de vérification est invalide ou a expiré.',
+    'email_already_verified'          => 'Votre e-mail est déjà vérifié.',
+    'verification_link_sent'          => 'Un nouveau lien de vérification a été envoyé à votre adresse e-mail.',
+    'unauthenticated'                 => 'Vous devez être connecté pour effectuer cette action.',
+    'not_authenticated'               => 'Authentification requise.',
+];

@@ -1,0 +1,52 @@
+:root {
+  /* MSC Uganda brand palette — edit these values to re-theme the ERP. */
+  --msc-green: #68c044;
+  --msc-green-dark: #315f25;
+  --msc-green-deep: #23471b;
+  --msc-green-soft: #eff8ec;
+  --msc-orange: #cf8d1e;
+  --msc-orange-bright: #e69d1d;
+  --msc-yellow: #f4bf19;
+  --msc-gray: #545556;
+
+  /* Derived brand treatments used across surfaces and interaction states. */
+  --msc-green-highlight: #a3dc8c;
+  --msc-green-border: #dbead5;
+  --msc-green-wash: rgba(104, 192, 68, 0.09);
+  --msc-green-line: rgba(104, 192, 68, 0.12);
+  --msc-green-glow: rgba(104, 192, 68, 0.14);
+  --msc-green-surface: rgba(104, 192, 68, 0.18);
+  --msc-green-shadow: rgba(49, 95, 37, 0.2);
+  --msc-green-shadow-strong: rgba(49, 95, 37, 0.24);
+  --msc-orange-wash: rgba(207, 141, 30, 0.08);
+  --msc-orange-line: rgba(207, 141, 30, 0.12);
+  --msc-orange-dark: #815612;
+  --msc-orange-soft: #fff8eb;
+  --msc-orange-border: #ecd7b3;
+  --msc-yellow-surface: rgba(244, 191, 25, 0.15);
+  --msc-yellow-glow: rgba(244, 191, 25, 0.12);
+
+  /* Semantic application tokens. */
+  --background: #f2f5f0;
+  --foreground: #20231f;
+  --card: #fff;
+  --card-foreground: #20231f;
+  --primary: var(--msc-green);
+  --primary-foreground: #fff;
+  --secondary: var(--msc-orange);
+  --secondary-foreground: #fff;
+  --muted: #f1f3ef;
+  --muted-foreground: #687067;
+  --border: #dde2da;
+  --input: #d7ddd4;
+  --ring: rgba(104, 192, 68, 0.26);
+  --workspace-canvas: #f2f5f0;
+  --workspace-green-light: rgba(104, 192, 68, 0.055);
+  --workspace-amber-light: rgba(207, 141, 30, 0.045);
+  --destructive: #c63c3c;
+  --destructive-soft: #fff1f1;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}

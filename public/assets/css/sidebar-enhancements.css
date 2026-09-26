@@ -1,0 +1,107 @@
+/* style.css hardcodes .navbar-content/.m-header to a literal "lightblue" background
+   (unlike its own dark-mode variant of the same selectors, which correctly uses
+   var(--bs-body-bg)), permanently masking the sidebar's theme-driven background
+   color for every organization. Restore the variable-driven background so
+   per-organization color schemes (Settings > Organization Profile) actually show. */
+.pc-sidebar .navbar-content,
+.pc-sidebar .m-header {
+  background-color: var(--pc-sidebar-background);
+}
+
+/* style.css only applies --pc-sidebar-color to the user-card's collapsed "My Account"/
+   "Logout" links, not to its own name/role/branch text (h6/small have no color rule at all)
+   — that text silently inherits Bootstrap's generic body text color instead, which stays dark
+   regardless of the sidebar's theme, becoming illegible against a dark-colored rail (org
+   color schemes, or several of the customizer's theme presets). Make it follow the sidebar
+   theme like everything else in the rail. */
+.pc-sidebar .card.pc-user-card h6,
+.pc-sidebar .card.pc-user-card small {
+  color: var(--pc-sidebar-color);
+}
+
+/* Keep navigation icons visually consistent regardless of whether a module uses
+   Font Awesome, Feather, or a legacy icon value from the module registry. */
+.pc-sidebar .pc-navbar > .pc-item > .pc-link {
+  min-height: 44px;
+  gap: 12px;
+}
+
+.pc-sidebar .pc-navbar > .pc-item > .pc-link > .pc-micon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  margin-right: 0;
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.pc-sidebar .pc-navbar > .pc-item > .pc-link > .pc-micon > i,
+.pc-sidebar .pc-navbar > .pc-item > .pc-link > .pc-micon > svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.pc-sidebar .pc-navbar > .pc-item > .pc-link > .pc-mtext {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Desktop ERP sidebar readability and active-route emphasis. */
+@media (min-width: 1025px) {
+  body[data-pc-layout="vertical"] {
+    --erp-sidebar-width: 304px;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar,
+  body[data-pc-layout="vertical"] .pc-sidebar .navbar-wrapper {
+    width: var(--erp-sidebar-width);
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar ~ .pc-header {
+    left: var(--erp-sidebar-width);
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar ~ .pc-footer,
+  body[data-pc-layout="vertical"] .pc-sidebar ~ .pc-container {
+    margin-left: var(--erp-sidebar-width);
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar.pc-sidebar-hide {
+    width: 0;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar.pc-sidebar-hide ~ .pc-header {
+    left: 0;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar.pc-sidebar-hide ~ .pc-footer,
+  body[data-pc-layout="vertical"] .pc-sidebar.pc-sidebar-hide ~ .pc-container {
+    margin-left: 0;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar .pc-link {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar .pc-item.active > .pc-link {
+    font-weight: 600;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar .pc-link.active {
+    color: var(--pc-sidebar-active-color);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}

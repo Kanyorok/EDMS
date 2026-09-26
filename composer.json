@@ -1,0 +1,139 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "ext-bcmath": "*",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-exif": "*",
+        "ext-fileinfo": "*",
+        "ext-imap": "*",
+        "ext-json": "*",
+        "ext-libxml": "*",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "ext-zlib": "*",
+        "barryvdh/laravel-dompdf": "^3.0",
+        "davmixcool/php-sentiment-analyzer": "^1.2",
+        "dompdf/dompdf": "^3.1",
+        "echolabsdev/prism": "^0.34.0",
+        "facebook/php-business-sdk": "^21.0",
+        "infobip/infobip-api-php-client": "^6.2",
+        "intervention/image": "^3.11",
+        "james-heinrich/getid3": "^1.9",
+        "jeremykendall/php-domain-parser": "6.0",
+        "laravel/framework": "^11.32",
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.9",
+        "maatwebsite/excel": "3.1.63",
+        "noweh/twitter-api-v2-php": "^3.6",
+        "php-imap/php-imap": "^5.0",
+        "phpoffice/phppresentation": "^1.2",
+        "phpoffice/phpword": "^1.4",
+        "pragmarx/google2fa-laravel": "^3.0",
+        "predis/predis": "^3.5",
+        "propaganistas/laravel-phone": "^6.0",
+        "roach-php/core": "^3.2",
+        "roach-php/laravel": "^3.1",
+        "shuchkin/simplexlsxgen": "^1.4",
+        "spatie/browsershot": "^5.0",
+        "spatie/geocoder": "^4.0",
+        "spatie/icalendar-generator": "^2.9",
+        "spatie/laravel-activitylog": "^4.8",
+        "spatie/laravel-permission": "^6.9",
+        "thiagoalessio/tesseract_ocr": "^2.13",
+        "yajra/laravel-datatables": "^11.0",
+        "yajra/laravel-datatables-html": "11.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.16",
+        "fakerphp/faker": "^1.23",
+        "friendsofphp/php-cs-fixer": "^3.94",
+        "kitloong/laravel-migrations-generator": "^7.2",
+        "larastan/larastan": "^3.9",
+        "laravel/pint": "^1.13",
+        "laravel/sail": "^1.26",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.0",
+        "php-parallel-lint/php-parallel-lint": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.5",
+        "roave/security-advisories": "dev-latest",
+        "spatie/laravel-ignition": "^2.4",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "autoload": {
+        "files": [
+            "app/helpers.php"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "lint": [
+            "@syntax-check",
+            "@php-cs-fixer",
+            "@phpcs",
+            "@phpstan",
+            "@detect-debug"
+        ],
+        "lint-fix": [
+            "php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes"
+        ],
+        "syntax-check": "parallel-lint --exclude vendor --colors .",
+        "php-cs-fixer": "php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff --allow-risky=yes",
+        "phpcs": "phpcs --standard=phpcs.xml --report=summary",
+        "phpcs-full": "phpcs --standard=phpcs.xml",
+        "phpcbf": "phpcbf --standard=phpcs.xml",
+        "phpstan": "phpstan analyse --memory-limit=2G",
+        "detect-debug": "php scripts/detect-debug-logs.php"
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "barryvdh/laravel-debugbar"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

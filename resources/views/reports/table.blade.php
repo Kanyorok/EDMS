@@ -1,0 +1,188 @@
+<div class="card-header">
+    <div class="float-end">
+        <a href="{{ route($module.'-reports.export',[$report->Id,'IMAGE'])."?".$params}}" target="_blank"
+           class="btn btn-secondary">
+            <i class="fas fa-file-image"></i> Image
+        </a>
+        <a href="{{ route($module.'-reports.export',[$report->Id,'PDF'])."?".$params }}" target="_blank"
+           class="btn btn-secondary">
+            <i class="fas fa-file-pdf"></i> PDF
+        </a>
+        <a href="{{ route($module.'-reports.export',[$report->Id,'EXCELOPENXML'])."?".$params}}"
+           target="_blank" class="btn btn-secondary">
+            <i class="fas fa-file-excel"></i> Excel
+        </a>
+        <a href="{{ route($module.'-reports.index') }}" class="btn btn-info">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+</div>
+<div class="card-body">
+    @if(!empty($data['header']))
+        <div class="mb-3 text-center">
+            @foreach($data['header'] as $key=>$value)
+                @if($loop->first ||  (array_key_exists('name',array_change_key_case($data['header'] , CASE_LOWER)) && \Illuminate\Support\Str::of($key)->lower()->contains('name')))
+                    <h2>{{ \Illuminate\Support\Str::of($value)->headline()->title()->toString() }}</h2>
+                @else
+                    <span class="h5">{{ $value }}&nbsp;</span>  &nbsp;
+                @endif
+            @endforeach
+        </div>
+    @endif
+
+        @if($data['error'] || empty($data['data']))
+            @include('snippets.errors')
+        @else
+            @php
+                $hierarchyDepth = $data['hierarchyDepth'] ?? 0;
+                $groupLevels = $data['groupLevels'] ?? [];
+                $rows = $data['data'] ?? [];
+
+                // --- THE FIX: Fallback to array keys if columns are empty ---
+                $columns = $data['columns'] ?? [];
+                if (empty($columns) && !empty($rows)) {
+                    // Find the first row that actually has data keys (skipping metadata-only rows if any)
+                    foreach ($rows as $row) {
+                        $filteredKeys = array_filter(array_keys($row), function($key) {
+                            return !in_array($key, ['_groups', '_depth']);
+                        });
+                        if (!empty($filteredKeys)) {
+                            $columns = array_values($filteredKeys);
+                            break;
+                        }
+                    }
+                }
+
+                // Helper function to check if group changed at a specific level
+                $groupChanged = function($rows, $rowIndex, $groupIndex) {
+                    if ($rowIndex === 0) return true;
+
+                    $currentGroups = $rows[$rowIndex]['_groups'] ?? [];
+                    $prevGroups = $rows[$rowIndex - 1]['_groups'] ?? [];
+
+                    // Check if any parent group changed
+                    for ($i = 0; $i < $groupIndex; $i++) {
+                        $currentVal = $currentGroups[$i]['value'] ?? '';
+                        $prevVal = $prevGroups[$i]['value'] ?? '';
+                        if ($currentVal !== $prevVal) {
+                            return true;
+                        }
+                    }
+
+                    // Check if this group changed
+                    $currentVal = $currentGroups[$groupIndex]['value'] ?? '';
+                    $prevVal = $prevGroups[$groupIndex]['value'] ?? '';
+                    return $currentVal !== $prevVal;
+                };
+
+                // Pre-calculate rowspans for each group at each row
+                $rowspans = [];
+                $rowCount = count($rows);
+                foreach ($rows as $rowIndex => $row) {
+                    $groups = $row['_groups'] ?? [];
+                    $rowspans[$rowIndex] = [];
+
+                    foreach ($groups as $groupIndex => $group) {
+                        $groupValue = $group['value'] ?? '';
+                        $rowspans[$rowIndex][$groupIndex] = 0;
+
+                        if ($groupChanged($rows, $rowIndex, $groupIndex)) {
+                            $count = 1;
+                            for ($nextRow = $rowIndex + 1; $nextRow < $rowCount; $nextRow++) {
+                                $nextGroups = $rows[$nextRow]['_groups'] ?? [];
+                                $nextGroupValue = $nextGroups[$groupIndex]['value'] ?? '';
+
+                                $parentMatch = true;
+                                for ($parentIndex = 0; $parentIndex < $groupIndex; $parentIndex++) {
+                                    $currentParentValue = $groups[$parentIndex]['value'] ?? '';
+                                    $nextParentValue = $nextGroups[$parentIndex]['value'] ?? '';
+                                    if ($currentParentValue !== $nextParentValue) {
+                                        $parentMatch = false;
+                                        break;
+                                    }
+                                }
+
+                                if ($parentMatch && $groupValue === $nextGroupValue) {
+                                    $count++;
+                                } else {
+                                    break;
+                                }
+                            }
+                            $rowspans[$rowIndex][$groupIndex] = $count;
+                        }
+                    }
+                }
+            @endphp
+
+            <div class="table-responsive">
+                <table class="table table-bordered w-100" id="reports-table">
+                    <thead>
+                    <tr>
+                        @foreach($groupLevels as $level)
+                            <th class="bg-light">{{ ucfirst(str_replace(['_', '1', '2', '3'], [' ', '', '', ''], $level['attribute'])) }}</th>
+                        @endforeach
+                        @foreach($columns as $column)
+                            <th>{{ ucfirst(str_replace('_', ' ', $column)) }}</th>
+                        @endforeach
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($rows as $rowIndex => $row)
+                        @php
+                            $groups = $row['_groups'] ?? [];
+                            // Skip rendering empty structural rows if they don't contain real column data
+                            $hasData = false;
+                            foreach($columns as $col) {
+                                if(isset($row[$col])) { $hasData = true; break; }
+                            }
+                        @endphp
+
+                        @if($hasData)
+                            <tr>
+                                {{-- Render group columns with rowspan --}}
+                                @foreach($groups as $groupIndex => $group)
+                                    @php
+                                        $rowspanValue = $rowspans[$rowIndex][$groupIndex] ?? 0;
+                                    @endphp
+                                    @if($rowspanValue > 0)
+                                        <td class="align-middle fw-bold bg-light"
+                                            @if($rowspanValue > 1) rowspan="{{ $rowspanValue }}" @endif>
+                                            {{ $group['value'] }}
+                                        </td>
+                                    @endif
+                                @endforeach
+
+                                {{-- Render data columns --}}
+                                @foreach($columns as $column)
+                                    @php
+                                        $cellValue = $row[$column] ?? '';
+                                    @endphp
+                                    <td>
+                                        {{-- Handle multi-line strings nicely in HTML --}}
+                                        {!! nl2br(e($cellValue)) !!}
+                                    </td>
+                                @endforeach
+                            </tr>
+                        @endif
+                    @empty
+                        <tr>
+                            <td colspan="{{ count($groupLevels) + count($columns) }}" class="text-center">{{ __('common.no_data') }}</td>
+                        </tr>
+                    @endforelse
+                    </tbody>
+                </table>
+            </div>
+        @endif
+</div>
+<script>
+    $(document).ready(function () {
+        $.fn.dataTable.ext.errMode = 'none';
+        @if(empty($groupLevels))
+        $('#reports-table').DataTable({
+            dom: '<"row"<"col-12 mb-2"tr><"col-5 text-center"i><"col-7"p>>',
+            paging: false,
+            ordering: false
+        });
+        @endif
+    });
+</script>

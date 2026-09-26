@@ -1,0 +1,634 @@
+{
+ "United Kingdom||birmingham": {
+  "name": "Birmingham",
+  "country_key": "United Kingdom"
+ },
+ "Zambia||shiwangandu": {
+  "name": "SHIWANGANDU",
+  "country_key": "Zambia"
+ },
+ "Zambia||katete": {
+  "name": "KATETE",
+  "country_key": "Zambia"
+ },
+ "Zambia||sikongo": {
+  "name": "Sikongo",
+  "country_key": "Zambia"
+ },
+ "Italy||milan": {
+  "name": "Milan",
+  "country_key": "Italy"
+ },
+ "Zambia||zambia": {
+  "name": "ZAMBIA",
+  "country_key": "Zambia"
+ },
+ "United States||miami": {
+  "name": "Miami",
+  "country_key": "United States"
+ },
+ "Zambia||chiengi": {
+  "name": "CHIENGI",
+  "country_key": "Zambia"
+ },
+ "Zambia||kalumbila": {
+  "name": "KALUMBILA",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaka province": {
+  "name": "LUSAKA PROVINCE",
+  "country_key": "Zambia"
+ },
+ "Zambia||senga hill": {
+  "name": "SENGA HILL",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusala": {
+  "name": "lusala",
+  "country_key": "Zambia"
+ },
+ "Zambia||rufunsa": {
+  "name": "RUFUNSA",
+  "country_key": "Zambia"
+ },
+ "Zambia||sinda": {
+  "name": "SINDA",
+  "country_key": "Zambia"
+ },
+ "Zambia||10101": {
+  "name": "10101",
+  "country_key": "Zambia"
+ },
+ "Zambia||vubwi": {
+  "name": "VUBWI",
+  "country_key": "Zambia"
+ },
+ "Zambia||morton house room 2, nkwazi road, lusaka": {
+  "name": "Morton House Room 2, Nkwazi Road, Lusaka",
+  "country_key": "Zambia"
+ },
+ "Zambia||lavushimanda": {
+  "name": "LAVUSHIMANDA",
+  "country_key": "Zambia"
+ },
+ "Zambia||nkeyema": {
+  "name": "Nkeyema",
+  "country_key": "Zambia"
+ },
+ "Zambia||chirundu": {
+  "name": "Chirundu",
+  "country_key": "Zambia"
+ },
+ "Zambia||kalomo": {
+  "name": "KALOMO",
+  "country_key": "Zambia"
+ },
+ "Zambia||kazungula": {
+  "name": "KAZUNGULA",
+  "country_key": "Zambia"
+ },
+ "Zambia||petauke eastern province": {
+  "name": "Petauke eastern province",
+  "country_key": "Zambia"
+ },
+ "Zambia||kambompo": {
+  "name": "KAMBOMPO",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaka city": {
+  "name": "Lusaka city",
+  "country_key": "Zambia"
+ },
+ "South Africa||germiston": {
+  "name": "Germiston",
+  "country_key": "South Africa"
+ },
+ "Kenya||nairobi-kenya": {
+  "name": "Nairobi-Kenya",
+  "country_key": "Kenya"
+ },
+ "Zambia||chienge": {
+  "name": "CHIENGE",
+  "country_key": "Zambia"
+ },
+ "United Kingdom||leicester": {
+  "name": "Leicester",
+  "country_key": "United Kingdom"
+ },
+ "Switzerland||geneva 12": {
+  "name": "GENEVA 12",
+  "country_key": "Switzerland"
+ },
+ "Zambia||luasaka": {
+  "name": "Luasaka",
+  "country_key": "Zambia"
+ },
+ "Zambia||mansa town": {
+  "name": "MANSA TOWN",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaka, zambia": {
+  "name": "Lusaka, Zambia",
+  "country_key": "Zambia"
+ },
+ "Zambia||luaska": {
+  "name": "luaska",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaka central": {
+  "name": "Lusaka Central",
+  "country_key": "Zambia"
+ },
+ "Zambia||chifunabuli": {
+  "name": "CHIFUNABULI",
+  "country_key": "Zambia"
+ },
+ "Zambia||manyinga": {
+  "name": "MANYINGA",
+  "country_key": "Zambia"
+ },
+ "Zambia||lussaka": {
+  "name": "LUSSAKA",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaja": {
+  "name": "LUSAJA",
+  "country_key": "Zambia"
+ },
+ "Zambia||shibuyunji": {
+  "name": "Shibuyunji",
+  "country_key": "Zambia"
+ },
+ "South Africa||j": {
+  "name": "J",
+  "country_key": "South Africa"
+ },
+ "Zambia||lusaka,": {
+  "name": "LUSAKA,",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusa": {
+  "name": "lusa",
+  "country_key": "Zambia"
+ },
+ "Lebanon||hazmieh": {
+  "name": "Hazmieh",
+  "country_key": "Lebanon"
+ },
+ "Hong Kong||hong kong": {
+  "name": "Hong Kong",
+  "country_key": "Hong Kong"
+ },
+ "Zambia||chalala,": {
+  "name": "Chalala,",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaka zambia": {
+  "name": "lusaka zambia",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaka, ndola": {
+  "name": "Lusaka, Ndola",
+  "country_key": "Zambia"
+ },
+ "Zambia||livigstone": {
+  "name": "LIVIGSTONE",
+  "country_key": "Zambia"
+ },
+ "Zambia||livinstone": {
+  "name": "LIVINSTONE",
+  "country_key": "Zambia"
+ },
+ "Mauritius||cybercity, ebene": {
+  "name": "Cybercity, Ebene",
+  "country_key": "Mauritius"
+ },
+ "Zambia||lusaka,zambia": {
+  "name": "LUSAKA,ZAMBIA",
+  "country_key": "Zambia"
+ },
+ "Zambia||mafinga": {
+  "name": "Mafinga",
+  "country_key": "Zambia"
+ },
+ "Zambia||chasefu": {
+  "name": "CHASEFU",
+  "country_key": "Zambia"
+ },
+ "Zambia||luska": {
+  "name": "Luska",
+  "country_key": "Zambia"
+ },
+ "Zambia||luampa": {
+  "name": "LUAMPA",
+  "country_key": "Zambia"
+ },
+ "Zambia||ndlola": {
+  "name": "NDLOLA",
+  "country_key": "Zambia"
+ },
+ "Zambia||p/bag e383 lusaka": {
+  "name": "P/BAG E383 LUSAKA",
+  "country_key": "Zambia"
+ },
+ "Zambia||chilanga": {
+  "name": "Chilanga",
+  "country_key": "Zambia"
+ },
+ "Zambia||mine township": {
+  "name": "mine township",
+  "country_key": "Zambia"
+ },
+ "Zambia||chisamba": {
+  "name": "Chisamba",
+  "country_key": "Zambia"
+ },
+ "Zambia||chiwala": {
+  "name": "CHIWALA",
+  "country_key": "Zambia"
+ },
+ "Zambia||kafue/lusaka": {
+  "name": "Kafue/Lusaka",
+  "country_key": "Zambia"
+ },
+ "Zambia||mulobezi": {
+  "name": "MULOBEZI",
+  "country_key": "Zambia"
+ },
+ "United States||midvale": {
+  "name": "Midvale",
+  "country_key": "United States"
+ },
+ "Zambia||mambwe": {
+  "name": "MAMBWE",
+  "country_key": "Zambia"
+ },
+ "Zambia||chilubi": {
+  "name": "CHILUBI",
+  "country_key": "Zambia"
+ },
+ "Zambia||kiwe": {
+  "name": "KIWE",
+  "country_key": "Zambia"
+ },
+ "Norway||lysaker": {
+  "name": "Lysaker",
+  "country_key": "Norway"
+ },
+ "Zambia||serenji": {
+  "name": "Serenji",
+  "country_key": "Zambia"
+ },
+ "Zambia||livingston": {
+  "name": "LIVINGSTON",
+  "country_key": "Zambia"
+ },
+ "Zambia||nanduba": {
+  "name": "NANDUBA",
+  "country_key": "Zambia"
+ },
+ "Zambia||chikankata": {
+  "name": "Chikankata",
+  "country_key": "Zambia"
+ },
+ "Zambia||isoka district": {
+  "name": "Isoka District",
+  "country_key": "Zambia"
+ },
+ "Zambia||lupososhi": {
+  "name": "LUPOSOSHI",
+  "country_key": "Zambia"
+ },
+ "Zambia||maamba town": {
+  "name": "MAAMBA TOWN",
+  "country_key": "Zambia"
+ },
+ "Zambia||liivngstone": {
+  "name": "Liivngstone",
+  "country_key": "Zambia"
+ },
+ "Zambia||chitambo": {
+  "name": "Chitambo",
+  "country_key": "Zambia"
+ },
+ "Zambia||lumezi": {
+  "name": "LUMEZI",
+  "country_key": "Zambia"
+ },
+ "Zambia||chipata city": {
+  "name": "CHIPATA CITY",
+  "country_key": "Zambia"
+ },
+ "Zambia||liteta": {
+  "name": "LITETA",
+  "country_key": "Zambia"
+ },
+ "Zambia||kasenengwa": {
+  "name": "KASENENGWA",
+  "country_key": "Zambia"
+ },
+ "Zimbabwe||isoka": {
+  "name": "isoka",
+  "country_key": "Zimbabwe"
+ },
+ "Zambia||kapiri": {
+  "name": "Kapiri",
+  "country_key": "Zambia"
+ },
+ "South Africa||eerste river, cape town": {
+  "name": "EERSTE RIVER, CAPE TOWN",
+  "country_key": "South Africa"
+ },
+ "Zambia||chipili": {
+  "name": "Chipili",
+  "country_key": "Zambia"
+ },
+ "Zambia||zmcl001": {
+  "name": "ZMCL001",
+  "country_key": "Zambia"
+ },
+ "Zambia||mansa luapula": {
+  "name": "MANSA LUAPULA",
+  "country_key": "Zambia"
+ },
+ "Zambia||ndola, copperbelt": {
+  "name": "Ndola, Copperbelt",
+  "country_key": "Zambia"
+ },
+ "Zambia||kgp": {
+  "name": "KGP",
+  "country_key": "Zambia"
+ },
+ "South Africa||woodmead": {
+  "name": "Woodmead",
+  "country_key": "South Africa"
+ },
+ "Zambia||lusaka district": {
+  "name": "Lusaka District",
+  "country_key": "Zambia"
+ },
+ "Zambia||makeni": {
+  "name": "Makeni",
+  "country_key": "Zambia"
+ },
+ "Zambia||shangombo": {
+  "name": "Shangombo",
+  "country_key": "Zambia"
+ },
+ "Zambia||60": {
+  "name": "60",
+  "country_key": "Zambia"
+ },
+ "Zambia||mpolokoso": {
+  "name": "MPOLOKOSO",
+  "country_key": "Zambia"
+ },
+ "Zambia||mwansabombwe": {
+  "name": "MWANSABOMBWE",
+  "country_key": "Zambia"
+ },
+ "Zambia||lilanda west lusaka": {
+  "name": "Lilanda West Lusaka",
+  "country_key": "Zambia"
+ },
+ "Zambia||itezhi-tezhi": {
+  "name": "ITEZHI-TEZHI",
+  "country_key": "Zambia"
+ },
+ "Zambia||lunte": {
+  "name": "Lunte",
+  "country_key": "Zambia"
+ },
+ "Zambia||chipangali": {
+  "name": "CHIPANGALI",
+  "country_key": "Zambia"
+ },
+ "Zambia||johannesburg": {
+  "name": "Johannesburg",
+  "country_key": "Zambia"
+ },
+ "India||kolkata india": {
+  "name": "KOLKATA INDIA",
+  "country_key": "India"
+ },
+ "Zambia||lumwana": {
+  "name": "LUMWANA",
+  "country_key": "Zambia"
+ },
+ "Zambia||lukulu western province": {
+  "name": "lukulu western province",
+  "country_key": "Zambia"
+ },
+ "Zambia||mfuwe": {
+  "name": "MFUWE",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaska": {
+  "name": "LUSASKA",
+  "country_key": "Zambia"
+ },
+ "Zambia||kapiri-mposhi": {
+  "name": "KAPIRI-MPOSHI",
+  "country_key": "Zambia"
+ },
+ "United Kingdom||london": {
+  "name": "London",
+  "country_key": "United Kingdom"
+ },
+ "South Africa||blackheath": {
+  "name": "Blackheath",
+  "country_key": "South Africa"
+ },
+ "Zambia||chilubi island": {
+  "name": "Chilubi island",
+  "country_key": "Zambia"
+ },
+ "Zambia||mpika, cassanova": {
+  "name": "MPIKA, CASSANOVA",
+  "country_key": "Zambia"
+ },
+ "Zambia||chama makeni": {
+  "name": "CHAMA MAKENI",
+  "country_key": "Zambia"
+ },
+ "Zambia||nchelege": {
+  "name": "NCHELEGE",
+  "country_key": "Zambia"
+ },
+ "Austria||vienna": {
+  "name": "Vienna",
+  "country_key": "Austria"
+ },
+ "Zambia||lundazi, chama": {
+  "name": "LUNDAZI, CHAMA",
+  "country_key": "Zambia"
+ },
+ "Zambia||mitete": {
+  "name": "MITETE",
+  "country_key": "Zambia"
+ },
+ "South Africa||edenvale, johannesburg": {
+  "name": "EDENVALE, JOHANNESBURG",
+  "country_key": "South Africa"
+ },
+ "Zambia||luano": {
+  "name": "Luano",
+  "country_key": "Zambia"
+ },
+ "Belgium||antwerpen": {
+  "name": "ANTWERPEN",
+  "country_key": "Belgium"
+ },
+ "Italy||tortona": {
+  "name": "Tortona",
+  "country_key": "Italy"
+ },
+ "South Africa||centurion, johannesburg": {
+  "name": "Centurion, Johannesburg",
+  "country_key": "South Africa"
+ },
+ "Ireland||dublin": {
+  "name": "Dublin",
+  "country_key": "Ireland"
+ },
+ "Zambia||masaiti": {
+  "name": "Masaiti",
+  "country_key": "Zambia"
+ },
+ "India||tirupati district, andhra pradesh": {
+  "name": "Tirupati District, Andhra Pradesh",
+  "country_key": "India"
+ },
+ "United Kingdom||manchester": {
+  "name": "Manchester",
+  "country_key": "United Kingdom"
+ },
+ "Zambia||lusaka area": {
+  "name": "LUSAKA AREA",
+  "country_key": "Zambia"
+ },
+ "Zambia||chisamba, central province": {
+  "name": "CHISAMBA, CENTRAL PROVINCE",
+  "country_key": "Zambia"
+ },
+ "Zambia||mass media, lusaka": {
+  "name": "Mass Media, Lusaka",
+  "country_key": "Zambia"
+ },
+ "Zambia||lufwanyama copperbelt": {
+  "name": "LUFWANYAMA COPPERBELT",
+  "country_key": "Zambia"
+ },
+ "Zambia||luapula province": {
+  "name": "Luapula Province",
+  "country_key": "Zambia"
+ },
+ "Bulgaria||kazanlak": {
+  "name": "Kazanlak",
+  "country_key": "Bulgaria"
+ },
+ "Zambia||mufurila": {
+  "name": "MUFURILA",
+  "country_key": "Zambia"
+ },
+ "Zambia||livingstone zambia": {
+  "name": "Livingstone Zambia",
+  "country_key": "Zambia"
+ },
+ "Zambia||chilillabombwe": {
+  "name": "chilillabombwe",
+  "country_key": "Zambia"
+ },
+ "United States||conshohocken": {
+  "name": "Conshohocken",
+  "country_key": "United States"
+ },
+ "Zambia||kitwe 260": {
+  "name": "Kitwe 260",
+  "country_key": "Zambia"
+ },
+ "South Africa||magaliessig, sandton": {
+  "name": "MAGALIESSIG, SANDTON",
+  "country_key": "South Africa"
+ },
+ "France||paris": {
+  "name": "Paris",
+  "country_key": "France"
+ },
+ "Zambia||serenje town": {
+  "name": "SERENJE TOWN",
+  "country_key": "Zambia"
+ },
+ "Zambia||mba": {
+  "name": "MBA",
+  "country_key": "Zambia"
+ },
+ "Zambia||solwezi, zambia": {
+  "name": "Solwezi, Zambia",
+  "country_key": "Zambia"
+ },
+ "Zambia||solwezi, independence avenue.": {
+  "name": "Solwezi, Independence Avenue.",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusaka kabwe central province": {
+  "name": "lusaka kabwe central province",
+  "country_key": "Zambia"
+ },
+ "Zambia||solowezi": {
+  "name": "Solowezi",
+  "country_key": "Zambia"
+ },
+ "Zambia||zimba": {
+  "name": "Zimba",
+  "country_key": "Zambia"
+ },
+ "Zambia||kasama -zambia": {
+  "name": "kasama -zambia",
+  "country_key": "Zambia"
+ },
+ "Zambia||chavuma": {
+  "name": "CHAVUMA",
+  "country_key": "Zambia"
+ },
+ "Zambia||kabwe, central province, zambia": {
+  "name": "KABWE, CENTRAL PROVINCE, ZAMBIA",
+  "country_key": "Zambia"
+ },
+ "Zambia||samfya district": {
+  "name": "SAMFYA DISTRICT",
+  "country_key": "Zambia"
+ },
+ "Zambia||chongwe lusaka": {
+  "name": "Chongwe Lusaka",
+  "country_key": "Zambia"
+ },
+ "Zambia||lusak": {
+  "name": "LUSAK",
+  "country_key": "Zambia"
+ },
+ "Zambia||itezhi-itezhi": {
+  "name": "ITEZHI-ITEZHI",
+  "country_key": "Zambia"
+ },
+ "Portugal||lisbon": {
+  "name": "Lisbon",
+  "country_key": "Portugal"
+ },
+ "South Africa||sandton": {
+  "name": "Sandton",
+  "country_key": "South Africa"
+ },
+ "Zambia||151": {
+  "name": "151",
+  "country_key": "Zambia"
+ },
+ "Hong Kong||quarry bay": {
+  "name": "Quarry Bay",
+  "country_key": "Hong Kong"
+ },
+ "Isle of man||ballasalla": {
+  "name": "Ballasalla",
+  "country_key": "Isle of man"
+ }
+}

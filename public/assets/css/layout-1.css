@@ -1,0 +1,135 @@
+/*
+ * Layout 1: compact icon-only rail + secondary labeled sidebar panel.
+ * Scoped entirely under body[data-pc-layout="layout-1"], desktop only (matches the
+ * existing sidebar-enhancements.css convention of a min-width: 1025px scope) — below that
+ * breakpoint the sidebar keeps today's default (full, off-canvas) mobile behavior.
+ */
+@media (min-width: 1025px) {
+  body[data-pc-layout="layout-1"] {
+    --layout1-rail-width: 76px;
+    --layout1-secondary-width: 220px;
+  }
+
+  body[data-pc-layout="layout-1"] .pc-sidebar,
+  body[data-pc-layout="layout-1"] .pc-sidebar .navbar-wrapper {
+    width: var(--layout1-rail-width);
+    overflow: visible;
+  }
+
+  body[data-pc-layout="layout-1"] .pc-sidebar ~ .pc-header {
+    left: calc(var(--layout1-rail-width) + var(--layout1-secondary-width));
+  }
+
+  body[data-pc-layout="layout-1"] .pc-sidebar ~ .pc-footer,
+  body[data-pc-layout="layout-1"] .pc-sidebar ~ .pc-container {
+    margin-left: calc(var(--layout1-rail-width) + var(--layout1-secondary-width));
+  }
+
+  /* Rail: icon-only, no brand text, no user card (account access stays in the topbar menu). */
+  body[data-pc-layout="layout-1"] .pc-sidebar .m-header {
+    justify-content: center;
+    padding: 0 8px;
+  }
+
+  body[data-pc-layout="layout-1"] .pc-sidebar .app-brand-text,
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-user-card,
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-mtext,
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-navbar > li.pc-item > .pc-link > .pc-arrow {
+    display: none;
+  }
+
+  /* The rail never shows its own inline submenu — the secondary panel takes over that role. */
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-navbar > li.pc-item > .pc-submenu {
+    display: none !important;
+  }
+
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-navbar > li.pc-item > .pc-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 0;
+  }
+
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-navbar > li.pc-item > .pc-link .pc-micon {
+    margin-right: 0;
+  }
+
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-navbar > li.pc-item.layout1-active > .pc-link,
+  body[data-pc-layout="layout-1"] .pc-sidebar .pc-navbar > li.pc-item.layout1-hovered > .pc-link {
+    color: var(--pc-sidebar-active-color);
+    background: var(--pc-active-background);
+  }
+
+  /* Secondary panel: a real persistent pane (not a hover flyout), nested inside .pc-sidebar
+     so it inherits the app's existing AJAX-nav click handling and .pc-submenu/.pc-link styling. */
+  body[data-pc-layout="layout-1"] .layout1-secondary-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: var(--layout1-rail-width);
+    width: var(--layout1-secondary-width);
+    /* --pc-sidebar-background actually resolves to transparent in this preset (see
+       layout-2.css) — this panel reserves its own space rather than overlaying content, so
+       it isn't currently visibly broken, but a real opaque color is still correct here. */
+    background: var(--bs-body-bg);
+    border-right: 1px solid var(--bs-border-color);
+    overflow-y: auto;
+    z-index: 1025;
+    padding: 16px 0 24px;
+  }
+
+  body[data-pc-layout="layout-1"] .layout1-secondary-header {
+    padding: 0 20px 12px;
+    margin: 0 20px 8px;
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  body[data-pc-layout="layout-1"] .layout1-secondary-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--pc-heading-color);
+  }
+
+  body[data-pc-layout="layout-1"] .layout1-secondary-empty {
+    padding: 4px 20px;
+    margin: 0;
+    color: var(--pc-heading-color);
+    opacity: .65;
+    font-size: .875rem;
+  }
+
+  /* --pc-sidebar-color is designed for light text on the DARK rail — this panel's background
+     is deliberately the light var(--bs-body-bg) instead (see above), so the generic
+     ".pc-sidebar .pc-link { color: var(--pc-sidebar-color) }" rule it would otherwise inherit
+     is wrong here for any theme whose rail text is light (all 4 new presets): light text on a
+     light panel is illegible. Use the same dark, light-surface-appropriate color the panel's
+     own title/empty-state already use. */
+  body[data-pc-layout="layout-1"] .layout1-secondary-body .pc-link {
+    color: var(--pc-heading-color);
+  }
+
+  /* The cloned .pc-submenu tree lives outside .pc-navbar, so the vendor's own per-depth
+     indent rules (scoped to ".pc-navbar > .pc-item .pc-submenu ...") don't reach it even
+     though it's still inside .pc-sidebar — everything else (base .pc-link padding/color,
+     hover/active color, the .pc-trigger show/hide + arrow rotation) is scoped generically
+     enough under .pc-sidebar to apply here for free. Only depth indent needs restating.
+   */
+  body[data-pc-layout="layout-1"] .layout1-secondary-body .pc-submenu .pc-link {
+    padding-left: 40px;
+  }
+
+  body[data-pc-layout="layout-1"] .layout1-secondary-body .pc-submenu .pc-submenu .pc-link {
+    padding-left: 56px;
+  }
+
+  body[data-pc-layout="layout-1"] .layout1-secondary-body .pc-submenu .pc-submenu .pc-submenu .pc-link {
+    padding-left: 72px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body[data-pc-layout="layout-1"] .layout1-secondary-panel {
+    display: none;
+  }
+}

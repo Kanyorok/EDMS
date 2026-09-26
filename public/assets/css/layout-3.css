@@ -1,0 +1,171 @@
+/*
+ * Layout 3: vertical accordion sidebar with a compact/rail toggle.
+ *
+ * Expanded mode (default) is deliberately close to today's Current layout — it reuses the
+ * app's existing single-open accordion (menu_click()/slideUp()/slideDown() in script.js)
+ * completely unchanged, just at its own width. Compact mode shrinks to an icon rail and shows
+ * each top-level section's children as a pure-CSS :hover flyout (layout-3.js only strips the
+ * inline display:none menu_click() stamps on submenus at load, so :hover can take over, and
+ * handles click-to-expand for nested branches inside an open flyout).
+ *
+ * Scoped entirely under body[data-pc-layout="layout-3"], desktop only.
+ */
+@media (min-width: 1025px) {
+  body[data-pc-layout="layout-3"] {
+    --layout3-width: 260px;
+    --layout3-compact-width: 68px;
+  }
+
+  body[data-pc-layout="layout-3"] .pc-sidebar,
+  body[data-pc-layout="layout-3"] .pc-sidebar .navbar-wrapper {
+    width: var(--layout3-width);
+  }
+
+  body[data-pc-layout="layout-3"] .pc-sidebar ~ .pc-header {
+    left: var(--layout3-width);
+  }
+
+  body[data-pc-layout="layout-3"] .pc-sidebar ~ .pc-footer,
+  body[data-pc-layout="layout-3"] .pc-sidebar ~ .pc-container {
+    margin-left: var(--layout3-width);
+  }
+
+  /* Compact toggle switch, sits at the end of the brand row. */
+  body[data-pc-layout="layout-3"] .layout3-compact-toggle {
+    margin-left: auto;
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    padding: 4px;
+    cursor: pointer;
+  }
+
+  body[data-pc-layout="layout-3"] .layout3-compact-toggle-track {
+    display: block;
+    width: 32px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--bs-border-color);
+    position: relative;
+    transition: background .15s ease;
+  }
+
+  body[data-pc-layout="layout-3"] .layout3-compact-toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    transition: left .15s ease;
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .layout3-compact-toggle-track {
+    background: var(--bs-primary);
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .layout3-compact-toggle-thumb {
+    left: 16px;
+  }
+
+  /* --- Compact mode --- */
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar,
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .navbar-wrapper {
+    width: var(--layout3-compact-width);
+    overflow: visible;
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar ~ .pc-header {
+    left: var(--layout3-compact-width);
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar ~ .pc-footer,
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar ~ .pc-container {
+    margin-left: var(--layout3-compact-width);
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .app-brand-text,
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-user-card,
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-mtext,
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-navbar > li.pc-item > .pc-link > .pc-arrow {
+    display: none;
+  }
+
+  /* The toggle must stay visible and reachable in compact mode too — it's the only way back
+     to expanded mode. Stack it under the brand mark instead of squeezing both into one row. */
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .m-header {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 12px 4px;
+    gap: 4px;
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .layout3-compact-toggle {
+    margin-left: 0;
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-navbar > li.pc-item {
+    position: relative;
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-navbar > li.pc-item > .pc-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 0;
+  }
+
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-navbar > li.pc-item > .pc-link .pc-micon {
+    margin-right: 0;
+  }
+
+  /* In compact mode, a top-level item's own .pc-trigger state (e.g. left over from the app's
+     highlightAndScrollActive() remembering a previously-visited page in this branch) must NOT
+     leave its submenu inline-expanded — only :hover should ever reveal it here, so force it
+     hidden unconditionally first regardless of .pc-trigger, then let the more specific :hover
+     rule below win on cascade. */
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-navbar > li.pc-item > .pc-submenu {
+    display: none !important;
+  }
+
+  /* The flyout itself is positioned via inline top/left set by layout-3.js on hover (computed
+     from the hovered icon's actual position) rather than a CSS-only left:100% offset, because
+     .navbar-content is wrapped by SimpleBar (the scrollbar plugin already used elsewhere in
+     this app) whose internal .simplebar-mask wrapper clips regular position:absolute content
+     regardless of the submenu's own position/display — position:fixed escapes that clipping
+     (verified no ancestor sets transform/filter/will-change, so nothing recaptures it as a
+     containing block), but fixed positioning has no equivalent to left:100%-of-parent, hence
+     the small amount of JS. Nested submenus (opened by clicking a grandchild-having item, see
+     layout-3.js) stay in normal flow inside this flyout, growing it taller instead of stacking
+     further flyouts. */
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-navbar > li.pc-item.pc-hasmenu > .pc-submenu.layout3-flyout-open {
+    display: block !important;
+    min-width: 220px;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: var(--bs-body-bg);
+    box-shadow: var(--pc-sidebar-shadow, 0 2px 12px rgba(0, 0, 0, .12));
+    border: 1px solid var(--bs-border-color);
+    border-radius: 6px;
+    padding: 8px 0;
+    z-index: 1030;
+  }
+
+  /* --pc-sidebar-color is designed for light text on the DARK rail — this flyout's background
+     is deliberately the light var(--bs-body-bg) instead (see above), so the generic
+     ".pc-sidebar .pc-link { color: var(--pc-sidebar-color) }" rule these (still-live, not
+     cloned) links would otherwise inherit is wrong here for any theme whose rail text is
+     light (all 4 new presets): light text on a light flyout is illegible. Scoped to content
+     inside the flyout only — the compact rail's own icons (dark background) are unaffected. */
+  body[data-pc-layout="layout-3"].layout3-compact .pc-sidebar .pc-navbar > li.pc-item.pc-hasmenu > .pc-submenu.layout3-flyout-open .pc-link {
+    color: var(--pc-heading-color);
+  }
+}
+
+@media (max-width: 1024px) {
+  body[data-pc-layout="layout-3"] .layout3-compact-toggle {
+    display: none;
+  }
+}

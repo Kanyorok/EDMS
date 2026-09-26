@@ -1,0 +1,62 @@
+{
+ "United Kingdom": {
+  "code": "GB",
+  "currency": "GBP",
+  "phone": "44"
+ },
+ "United States": {
+  "code": "US",
+  "currency": "USD",
+  "phone": "1"
+ },
+ "Italy": {
+  "code": "IT",
+  "currency": "EUR",
+  "phone": "39"
+ },
+ "Switzerland": {
+  "code": "CH",
+  "currency": "CHF",
+  "phone": "41"
+ },
+ "Norway": {
+  "code": "NO",
+  "currency": "NOK",
+  "phone": "47"
+ },
+ "Austria": {
+  "code": "AT",
+  "currency": "EUR",
+  "phone": "43"
+ },
+ "Belgium": {
+  "code": "BE",
+  "currency": "EUR",
+  "phone": "32"
+ },
+ "Ireland": {
+  "code": "IE",
+  "currency": "EUR",
+  "phone": "353"
+ },
+ "Bulgaria": {
+  "code": "BG",
+  "currency": "BGN",
+  "phone": "359"
+ },
+ "France": {
+  "code": "FR",
+  "currency": "EUR",
+  "phone": "33"
+ },
+ "Portugal": {
+  "code": "PT",
+  "currency": "EUR",
+  "phone": "351"
+ },
+ "Isle of man": {
+  "code": "IM",
+  "currency": "GBP",
+  "phone": "44"
+ }
+}

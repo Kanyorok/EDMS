@@ -1,0 +1,68 @@
+/* Sidebar brand (logo + organization name). */
+
+.pc-sidebar .m-header {
+  height: 74px;
+  padding: 12px 16px;
+}
+
+.pc-sidebar .m-header .app-sidebar-brand {
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+}
+
+.pc-sidebar .m-header .app-brand-logo {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  object-fit: contain;
+}
+
+.pc-sidebar .m-header .app-brand-text {
+  margin-left: 12px !important;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.pc-sidebar .m-header .app-brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.pc-sidebar .m-header .app-brand-motto {
+  color: rgba(var(--pc-sidebar-color-rgb), 0.75);
+  font-size: 0.68rem;
+  line-height: 1.1;
+  margin-top: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pc-sidebar .navbar-content {
+  height: calc(100vh - 74px);
+}
+
+@media (min-width: 1025px) {
+  body[data-pc-layout="vertical"] .pc-sidebar .m-header {
+    height: 92px;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar .m-header .app-brand-logo {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  body[data-pc-layout="vertical"] .pc-sidebar .navbar-content {
+    height: calc(100vh - 92px);
+  }
+}

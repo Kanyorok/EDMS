@@ -1,0 +1,510 @@
+{
+  "info": {
+    "name": "BRERP DMS External API (core banking)",
+    "description": "Documents filed by an external system (CBS) into the DMS. Run 'Get token' first: it stores dms_token, which every other request sends as a bearer token. Set dms_password to the password of the source system's service user (Settings > DMS > Source Systems). In production the gateway makes these calls; use this collection to test the ERP directly.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "dms_system",
+      "value": "CBS"
+    },
+    {
+      "key": "dms_user",
+      "value": "CSADM"
+    },
+    {
+      "key": "dms_password",
+      "value": ""
+    },
+    {
+      "key": "dms_token",
+      "value": ""
+    },
+    {
+      "key": "document_id",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Get token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/token",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "token"
+          ]
+        },
+        "description": "The only call that takes credentials. Returns a 60-minute bearer token good only for this source system. 401 for any wrong credential, wrong account, or unknown system. Limited to 10 attempts a minute.",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{dms_user}}\",\n  \"password\": \"{{dms_password}}\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const r = pm.response.json();",
+              "if (pm.response.code === 200) { pm.collectionVariables.set('dms_token', r.data.token); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Events for a screen",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/events?module=1330&entityType=",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "events"
+          ],
+          "query": [
+            {
+              "key": "module",
+              "value": "1330"
+            },
+            {
+              "key": "entityType",
+              "value": ""
+            }
+          ]
+        },
+        "description": "What the CBS screen (module id) may upload: events, document type rules and the form (properties) to render.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "List documents for a record",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/documents?entityType=ACCOUNT&entityId=0010000059251&event=&module=",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "documents"
+          ],
+          "query": [
+            {
+              "key": "entityType",
+              "value": "ACCOUNT"
+            },
+            {
+              "key": "entityId",
+              "value": "0010000059251"
+            },
+            {
+              "key": "event",
+              "value": ""
+            },
+            {
+              "key": "module",
+              "value": ""
+            }
+          ]
+        },
+        "description": "Documents filed against one CBS record, each with its status (hold, review, validation).",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get one document",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/documents/{{document_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "documents",
+            "{{document_id}}"
+          ]
+        },
+        "description": "404 if the document was not filed by this source system.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Signed content link",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/documents/{{document_id}}/link",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "documents",
+            "{{document_id}}",
+            "link"
+          ]
+        },
+        "description": "Returns a 5-minute signed URL for the current version. Open it in a browser or GET it; it needs no token.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"actor\": \"CS.OFFICER\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Upload document",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/documents",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "documents"
+          ]
+        },
+        "description": "Multipart. properties is a JSON list of {name,value} following the event's definition. 201 with the document; 422 lists what failed.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "event",
+              "value": "CBS_ACC_NATIONAL_ID",
+              "type": "text"
+            },
+            {
+              "key": "module",
+              "value": "1330",
+              "type": "text"
+            },
+            {
+              "key": "entityId",
+              "value": "0010000059251",
+              "type": "text"
+            },
+            {
+              "key": "actor",
+              "value": "CS.OFFICER",
+              "type": "text"
+            },
+            {
+              "key": "actorName",
+              "value": "Counter Officer",
+              "type": "text"
+            },
+            {
+              "key": "properties",
+              "value": "[{\"name\": \"cbs.class\", \"value\": \"IDEN\"}, {\"name\": \"cbs.received_by\", \"value\": \"Teller One\"}, {\"name\": \"cbs.received_date\", \"value\": \"2026-09-20 10:30\"}]",
+              "type": "text"
+            },
+            {
+              "key": "expiryDate",
+              "value": "2030-01-31",
+              "type": "text"
+            },
+            {
+              "key": "notes",
+              "value": "",
+              "type": "text"
+            },
+            {
+              "key": "file",
+              "type": "file",
+              "src": []
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 201) { pm.collectionVariables.set('document_id', pm.response.json().data.documentId); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Replace file",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/documents/{{document_id}}/replace",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "documents",
+            "{{document_id}}",
+            "replace"
+          ]
+        },
+        "description": "A new version. 409 with a reason (legal_hold, under_review, archived, checked_out, pending_validation) while the document is locked.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "actor",
+              "value": "CS.OFFICER",
+              "type": "text"
+            },
+            {
+              "key": "remark",
+              "value": "Clearer scan",
+              "type": "text"
+            },
+            {
+              "key": "file",
+              "type": "file",
+              "src": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Request review",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/documents/{{document_id}}/review",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "documents",
+            "{{document_id}}",
+            "review"
+          ]
+        },
+        "description": "reviewer (a DMS user ID) overrides the event's default reviewer. 422 if neither exists; 409 if locked.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"actor\": \"CS.OFFICER\",\n  \"actorName\": \"Counter Officer\",\n  \"note\": \"Please check the stamp\",\n  \"reviewer\": \"\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Request validation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v1/dms/external/{{dms_system}}/documents/{{document_id}}/validation",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "dms",
+            "external",
+            "{{dms_system}}",
+            "documents",
+            "{{document_id}}",
+            "validation"
+          ]
+        },
+        "description": "Puts the document through the event's validation type. 422 if the event has none; 409 if locked.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{dms_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"actor\": \"CS.OFFICER\",\n  \"actorName\": \"Counter Officer\",\n  \"note\": \"\"\n}"
+        }
+      }
+    }
+  ]
+}
