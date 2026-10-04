@@ -34,6 +34,7 @@ enum PermissionEnum: string
     case Teams = 'teams';
     case ListsView = 'lists-view';
     case ListsUpdate = 'lists-update';
+    case Integrations = 'integrations';
     case OrganizationProfile = 'organization-profile';
     case SetBaseCurrency = 'set-base-currency';
     case BranchView = 'branch-view';
@@ -61,7 +62,7 @@ enum PermissionEnum: string
             [self::DMSWidgetsView, self::DMSWidgetsCreate, self::DMSWidgetsUpdate, self::DMSWidgetsDelete],
             [self::DMSLayoutsView, self::DMSLayoutsCreate, self::DMSLayoutsUpdate, self::DMSLayoutsDelete],
             [self::Users, self::UsersSessions, self::Roles, self::Teams, self::Admin],
-            [self::ListsView, self::ListsUpdate, self::OrganizationProfile, self::SetBaseCurrency],
+            [self::ListsView, self::ListsUpdate, self::Integrations, self::OrganizationProfile, self::SetBaseCurrency],
             [self::BranchView, self::BranchCreate, self::BranchUpdate, self::BranchDelete, self::BranchSyncAct],
             [self::WorkflowView, self::WorkflowCreate, self::WorkflowUpdate, self::WorkflowDelete],
             [self::EmployeesView, self::EmployeesCreate, self::EmployeesUpdate, self::EmployeesDelete, self::Departments],

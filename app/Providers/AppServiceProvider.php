@@ -22,6 +22,7 @@ use App\Models\DMS\SourceSystem;
 use App\Models\DMS\StorageLocation;
 use App\Models\HRM\Department;
 use App\Models\HRM\Employee;
+use App\Models\Settings\APICredential;
 use App\Policies\DMS\DMSSignaturePolicy;
 use App\Policies\DMS\DMSTagPolicy;
 use App\Policies\DMS\DMSDocumentTypePolicy;
@@ -39,6 +40,7 @@ use App\Policies\DMS\StorageLocationPolicy;
 use App\Policies\RolePolicy;
 use App\Policies\DepartmentPolicy;
 use App\Policies\EmployeePolicy;
+use App\Policies\APICredentialPolicy;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Event;
@@ -99,6 +101,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(EventType::class, EventTypePolicy::class);
         Gate::policy(DMSDocumentType::class, DMSDocumentTypePolicy::class);
         Gate::policy(LegalHold::class, LegalHoldPolicy::class);
+        Gate::policy(APICredential::class, APICredentialPolicy::class);
 
         Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
     }

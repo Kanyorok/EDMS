@@ -40,6 +40,7 @@ class ModuleSeeder extends Seeder
             [9800300, 'Branches', 9800000, 'branches.index', PermissionEnum::BranchView->value],
             [98004000, 'Code Details', 9800000, 'settings.lists', PermissionEnum::ListsView->value],
             [98004500, 'User Sessions', 9800000, 'settings.user-sessions.index', PermissionEnum::UsersSessions->value],
+            [98005000, 'Integrations', 9800000, 'settings.integrations', PermissionEnum::Integrations->value],
             [98005500, 'Organization Profile', 9800000, 'settings.organization-profile.index', PermissionEnum::OrganizationProfile->value],
             [98006000, 'Global Workflow', 9800000, null, null],
             [98006100, 'Workflow Setup', 98006000, 'settings.workflows.index', PermissionEnum::WorkflowView->value],

@@ -87,7 +87,8 @@ Route::middleware(['web', 'auth', 'active-module-route'])->namespace('App\Http\C
         Route::get('organization-profile', 'OrganizationProfileController@index')->name('settings.organization-profile.index');
         Route::post('organization-profile', 'OrganizationProfileController@update')->name('settings.organization-profile.update');
 
-
+        Route::get('integrations', 'SettingsController@integrations')->name('settings.integrations');
+        Route::post('integrations', 'IntegrationController');
         Route::get('system-backups', 'SystemBackupController@index')->name('settings.system-backups.index');
         Route::post('system-backups', 'SystemBackupController@update')->name('settings.system-backups.update');
         Route::post('system-backups/run-now', 'SystemBackupController@runNow')->name('settings.system-backups.run-now');

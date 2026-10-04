@@ -164,6 +164,7 @@ class RolePermissionSeeder extends Seeder
             PermissionEnum::Teams,
             PermissionEnum::ListsView,
             PermissionEnum::ListsUpdate,
+            PermissionEnum::Integrations,
             PermissionEnum::OrganizationProfile,
             PermissionEnum::SetBaseCurrency,
             PermissionEnum::BranchView,
