@@ -67,7 +67,7 @@ class GoogleMapsService
     public static function testConfig(#[SensitiveParameter] string $api_key): bool
     {
         try {
-            (new self($api_key))->geocoder->getAllCoordinatesForAddress('Craft Silicon, Nairobi');
+            (new self($api_key))->geocoder->getAllCoordinatesForAddress('Beyond The Eye, Nairobi');
         } catch (ErroredException | CouldNotGeocode) {
             return false;
         }

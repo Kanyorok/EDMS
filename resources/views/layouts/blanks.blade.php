@@ -51,7 +51,7 @@
     @yield('content')
 </main>
 <footer class="site-footer mt-auto text-center py-3 text-black">
-    &copy; {{ date('Y') }} Bankers Realm. {{ __('ui.all_rights_reserved') }} Craft Silicon Ltd
+    &copy; {{ date('Y') }} Bankers Realm. {{ __('ui.all_rights_reserved') }} Beyond The Eye Ltd
 </footer>
 @include('layouts._partials._scripts')
 </body>

@@ -38,10 +38,10 @@ return [
 
     // Login page
     'sign_in'               => 'Connexion',
-    'login_header'          => 'En-tête de connexion Craft Silicon',
-    'login_eyebrow'         => 'Craft Silicon · Gestion intégrée',
+    'login_header'          => 'En-tête de connexion Beyond The Eye',
+    'login_eyebrow'         => 'Beyond The Eye · Gestion intégrée',
     'login_headline'        => 'Un seul espace.<br><span>Des décisions claires.</span>',
-    'login_story'           => 'Une vue sécurisée et connectée des opérations, des équipes et des informations qui font avancer Craft Silicon.',
+    'login_story'           => 'Une vue sécurisée et connectée des opérations, des équipes et des informations qui font avancer Beyond The Eye.',
     'secure_access'         => 'Accès professionnel protégé',
     'secure_access_copy'    => 'Votre session et l’activité de votre compte sont gérées en toute sécurité.',
     'secure_workspace'      => 'Espace sécurisé',

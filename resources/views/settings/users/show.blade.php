@@ -38,10 +38,12 @@
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item disabled text-decoration-line-through"
                                        href="javascript:void(0)"><i class="fas fa-phone-alt"></i> Call</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item send-message-to-action" href="javascript:void(0)"
-                                       data-info="{{ route('user-sms.store', [$user->UserID]) }}~{{ $user->Name }}~{{ $user->Phone }}">
-                                        <i class="fas fa-message"></i> Message</a>
+                                    @if(\Illuminate\Support\Facades\Route::has('user-sms.store'))
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item send-message-to-action" href="javascript:void(0)"
+                                           data-info="{{ route('user-sms.store', [$user->UserID]) }}~{{ $user->Name }}~{{ $user->Phone }}">
+                                            <i class="fas fa-message"></i> Message</a>
+                                    @endif
                                 </div>
                             </div>
                         @endif
@@ -244,7 +246,9 @@
     </div>
 @endsection
 @section('scripts')
-    @include('snippets.actions.sms')
+    @if(\Illuminate\Support\Facades\Route::has('user-sms.store'))
+        @include('snippets.actions.sms')
+    @endif
     <script src="{{ asset('assets/libs/select2/js/select2.full.min.js') }}"></script>
     <script>
         $(document).ready(function () {

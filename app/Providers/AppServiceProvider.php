@@ -28,7 +28,7 @@ use App\Policies\DMS\DMSTagPolicy;
 use App\Policies\DMS\DMSDocumentTypePolicy;
 use App\Policies\DMS\DocumentPolicy;
 use App\Policies\DMS\DocumentReviewPolicy;
-use App\Policies\DMS\DocumentValidationPolicy;
+use App\Policies\DocumentValidationPolicy;
 use App\Policies\DMS\DocumentValidationTypePolicy;
 use App\Policies\DMS\EventTypePolicy;
 use App\Policies\DMS\LegalHoldPolicy;
@@ -82,6 +82,27 @@ class AppServiceProvider extends ServiceProvider
             Registry::getPrimaryKey() => Registry::class,
             StorageLocation::getPrimaryKey() => StorageLocation::class,
             DocumentValidation::getPrimaryKey() => DocumentValidation::class,
+            DocumentValidationType::getPrimaryKey() => DocumentValidationType::class,
+            \App\Models\DMS\DMSTags::getPrimaryKey() => \App\Models\DMS\DMSTags::class,
+            \App\Models\DMS\DMSSignature::getPrimaryKey() => \App\Models\DMS\DMSSignature::class,
+            \App\Models\DMS\DocumentAttribute::getPrimaryKey() => \App\Models\DMS\DocumentAttribute::class,
+            \App\Models\DMS\DocumentCheckOut::getPrimaryKey() => \App\Models\DMS\DocumentCheckOut::class,
+            \App\Models\DMS\DocumentLegalHold::getPrimaryKey() => \App\Models\DMS\DocumentLegalHold::class,
+            \App\Models\DMS\DocumentRelation::getPrimaryKey() => \App\Models\DMS\DocumentRelation::class,
+            \App\Models\DMS\DocumentSignature::getPrimaryKey() => \App\Models\DMS\DocumentSignature::class,
+            \App\Models\DMS\DocumentTaggingRules::getPrimaryKey() => \App\Models\DMS\DocumentTaggingRules::class,
+            \App\Models\DMS\DocumentTags::getPrimaryKey() => \App\Models\DMS\DocumentTags::class,
+            \App\Models\DMS\DocumentValidationAttribute::getPrimaryKey() => \App\Models\DMS\DocumentValidationAttribute::class,
+            \App\Models\DMS\DocumentVersion::getPrimaryKey() => \App\Models\DMS\DocumentVersion::class,
+            \App\Models\DMS\Image::getPrimaryKey() => \App\Models\DMS\Image::class,
+            \App\Models\DMS\LegalHold::getPrimaryKey() => \App\Models\DMS\LegalHold::class,
+            \App\Models\DMS\LocationTypeRule::getPrimaryKey() => \App\Models\DMS\LocationTypeRule::class,
+            \App\Models\DMS\PhysicalDocument::getPrimaryKey() => \App\Models\DMS\PhysicalDocument::class,
+            \App\Models\DMS\PhysicalDocumentRelation::getPrimaryKey() => \App\Models\DMS\PhysicalDocumentRelation::class,
+            \App\Models\DMS\PhysicalFile::getPrimaryKey() => \App\Models\DMS\PhysicalFile::class,
+            \App\Models\DMS\PhysicalFileCheckout::getPrimaryKey() => \App\Models\DMS\PhysicalFileCheckout::class,
+            \App\Models\DMS\PhysicalFileMovement::getPrimaryKey() => \App\Models\DMS\PhysicalFileMovement::class,
+            \App\Models\DMS\PhysicalFileRequest::getPrimaryKey() => \App\Models\DMS\PhysicalFileRequest::class,
         ]);
 
         Gate::policy(Role::class, RolePolicy::class);

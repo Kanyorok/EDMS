@@ -38,8 +38,8 @@ return [
 
     // Login page
     'sign_in'               => 'Sign in',
-    'login_header'          => 'Craft Silicon sign-in header',
-    'login_eyebrow'         => 'Craft Silicon · Enterprise Resource Planning',
+    'login_header'          => 'Beyond The Eye sign-in header',
+    'login_eyebrow'         => 'Beyond The Eye · Enterprise Resource Planning',
     'login_headline'        => 'One workspace.<br><span>Clear decisions.</span>',
     'login_story'           => 'Driving Financial Inclusion Through Efficient and Accountable Operations.',
     'secure_access'         => 'Protected enterprise access',

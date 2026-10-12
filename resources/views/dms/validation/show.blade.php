@@ -189,7 +189,7 @@
                 <div class="modal-body">
                     <div class="onboarding-content d-none modal-item" id="rejectDocumentModal">
                         <h4 class="text-danger text-center">
-                            Reject Document {{ $document->Name }} ?
+                            Reject Document {{ $document?->Name }} ?
                         </h4>
                         <div class="mt-2 mb-2 text-center">
                             The reason is recorded against the validation so the document can be corrected and
